@@ -2059,4 +2059,17 @@ different namespaces and additional elements of the MCP and add it to the
 ``schema-conversions.xml`` file for the MCP.
 
 
+Customizing Spring beans
+````````````````````````
+When producing your schema-plugin it is possible to override the metada data related Spring bean in WEB-INF/config-spring-geonetwork namely:
+
+* metadataIndex.
+* metadataManager.
+* metadataUtils.
+
+To do so declare a bean in the application context local to the schema, namely the config-spring-geonetwork.xml, pointing to your metadataManager implementation. It necessary to define the bean's id as id="metadataManager" and the attribute primary set to true.
+
+Here an example of a bean declaration:
+
+:code:`<bean id="metadataManager" primary="true" class="org.fao.geonet.schema.iso19133.CustomMetadataManager"/>`
 
